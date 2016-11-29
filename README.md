@@ -1,0 +1,2 @@
+# mysqlbinlog_flashback
+产生在线mysqlbinlog的回滚的sql
