@@ -1,5 +1,5 @@
 #目前运行情况
-现在已经在阿里的rds上，db为utf8字符集的生产环境下使用
+现在已经在阿里的rds上，db为utf8字符集的生产环境下使用。其他环境没有在生产环境下使用，请小心。
 #工具简介
 ##概述
 mysqlbinlog_back.py 是在线读取row格式的mysqld的binlog,然后生成反向的sql语句的工具。一般用于数据恢复的目的。
@@ -11,9 +11,9 @@ mysqlbinlog_back.py 是在线读取row格式的mysqld的binlog,然后生成反�
 下面是程序输出结果 
  `ls -l log/*` 
   
- `-rw-r--r-- 1 root root 2592 Nov 9 15:44 log/save_data_dml_test_20161109_154434.sql  
+  -rw-r--r-- 1 root root 2592 Nov 9 15:44 log/save_data_dml_test_20161109_154434.sql  
   -rw-r--r-- 1 root root 1315 Nov 9 15:44 log/flashback_test_20161109_154434.sql <--- 反向sq文件  
-  -rw-r--r-- 1 root root 441 Nov 9 15:44 log/save_data_create_table_test_20161109_154434.sql`
+  -rw-r--r-- 1 root root 441 Nov 9 15:44 log/save_data_create_table_test_20161109_154434.sql
 
 它会在线连接参数指定mysql,读取binlog,仅仅抽取对schema为test 表名test5的binlog，生成反向sq文件保存在log目录下,其中flash_开头的文件是反向的sql语句。
 
@@ -62,7 +62,7 @@ pymysql
 
 2.对mysql字符集的支持什么
 
-utf8测试通过。gbk方式没有测试，应该问题不大。mtf8m4没有测试
+utf8测试通过。gbk方式没有测试，应该问题不大。*mtf8m4没有测试*
 原理角度python都用utf8的方式读出数据，内部转换成unicode的方式，然后写文件输出到utf8编码格式的文件
 
 3.对mysql时间类型的支持是什么
