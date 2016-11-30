@@ -1,0 +1,9 @@
+0.1.1  2016/11/23
+增加功能：提供针对update,delete,insert操作类型的过滤 ( --skip_insert  --skip_update --skip_delete)
+增加功能：产生的sql可以去除schema名称( --add_schema_name) ，这样用户更好调试
+其他：加版本标识
+其他：单元测试挪到test目录下
+
+0.1.0   2016/11/17
+初始版本
+
