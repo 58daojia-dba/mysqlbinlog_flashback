@@ -67,7 +67,7 @@ pymysql
 
 utf8测试通过。gbk方式没有测试，应该问题不大。
 
-<font color=red>mtf8m4没有测试,很可能不行</font>，这个后续版本修复。
+*mtf8m4没有测试,很可能不行*，这个后续版本修复。
 
 原理角度python都用utf8的方式读出数据，内部转换成unicode的方式，然后写文件输出到utf8编码格式的文件
 
