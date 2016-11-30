@@ -40,9 +40,9 @@ pymysql
 [内部原理](internal/flashback_internal.ppt)
 
 #使用限制
-1.支持mysql版本为MySQL 5.5 and 5.6.因为底层使用的是python-mysql-replication包。
+1.支持mysql版本为MySQL 5.5 and 5.6.因为底层使用的是[python-mysql-replication](https://github.com/noplay/python-mysql-replication)包。
 
-2.数据库必须是row格式的。原因看这个链接
+2.数据库必须是row格式的。原因看这个[链接](https://python-mysql-replication.readthedocs.io/en/latest/limitations.html)
 
 3.反向生成的表必须有主键。
 
