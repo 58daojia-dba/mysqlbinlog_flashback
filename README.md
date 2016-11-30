@@ -28,8 +28,10 @@ mysqlbinlog_back.py在线连接参数指定mysql,读取binlog,如果缺省，它
 
 ##参数说明
 python mysqlbinlog_back.py --help 看在线的帮助
+另外也可以看一下CHANGELOG.txt
 
-##依赖的包
+##依赖的包和环境
+python2.6 
 pymysql
 
 #使用限制
@@ -66,6 +68,6 @@ timestamp经过python转换成datetime,转换成运行程序的环境时区相�
 4.底层是用的python-mysql-replication 包，是否可以用原生态的python-mysql-replication替换呢？
 不行，因为原生态的包开发的接口不够多，有些功能不具备。所以在它的代码基础上改了部分
 
-5. 指定event位置时是否会找出语句的丢失?
+5.指定event位置时是否会找出语句的丢失?
 一定不能指定位置时指定在dml的位置，位置至少应该在dml之前的table_map的位置，当然更加好的位置应该是在事物开始的位置，也就是begin的位置。
 因为一个dml会对应2个event,一个table_map，另一个是dml的event
