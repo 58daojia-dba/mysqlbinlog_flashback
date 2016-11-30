@@ -6,14 +6,14 @@ mysqlbinlog_back.py 是在线读取row格式的mysqld的binlog,然后生成反�
 所谓反向的sql语句就是如果是insert，则反向的sql为delete。如果delete,反向的sql是insert,如果是update, 反向的sql还是update,但是update的值是原来的值。
 
 最简单的例子为
-python mysqlbinlog_back.py --host="127.0.0.1" --username="root" --port=43306 --password="" --schema=test --table="test5" 
+`python mysqlbinlog_back.py --host="127.0.0.1" --username="root" --port=43306 --password="" --schema=test --table="test5"` 
 
 下面是程序输出结果 
- ls -l log/* 
+ `ls -l log/* 
  
   -rw-r--r-- 1 root root 2592 Nov 9 15:44 log/save_data_dml_test_20161109_154434.sql  
   -rw-r--r-- 1 root root 1315 Nov 9 15:44 log/flashback_test_20161109_154434.sql <--- 反向sq文件  
-  -rw-r--r-- 1 root root 441 Nov 9 15:44 log/save_data_create_table_test_20161109_154434.sql
+  -rw-r--r-- 1 root root 441 Nov 9 15:44 log/save_data_create_table_test_20161109_154434.sql`
 
 它会在线连接参数指定mysql,读取binlog,仅仅抽取对schema为test 表名test5的binlog，生成反向sq文件保存在log目录下,其中flash_开头的文件是反向的sql语句。
 
@@ -27,11 +27,13 @@ mysqlbinlog_back.py在线连接参数指定mysql,读取binlog,如果缺省，它
 另一类用于审查数据的sql,审查数据的sql用于记录操作类型，sql的老、新值。其中, save_data_create_table_开头的文件用于生成建表语句，save_data_dml用于插入到新的表中。
 
 ##参数说明
-python mysqlbinlog_back.py --help 看在线的帮助
-另外也可以看一下CHANGELOG.txt
+`python mysqlbinlog_back.py --help`  看在线的帮助
+
+另外也可以看一下[CHANGELOG.txt](CHANGELOG.txt)
 
 ##依赖的包和环境
 python2.6 
+
 pymysql
 
 #使用限制
@@ -55,19 +57,27 @@ pymysql
 
 #FAQ
 1.mysqlbinlog_back.py 是否对数据库性能造成影响？
+
 基本没有影响。因为代码对mysql的操作就是2种，第一种是伪装成mysql的从库去在线读取日志，对mysql的压力就是传输一下binlog.第二种会读取information_schema.columns系统表
 
 2.对mysql字符集的支持什么
+
 utf8测试通过。gbk方式没有测试，应该问题不大。mtf8m4没有测试
 原理角度python都用utf8的方式读出数据，内部转换成unicode的方式，然后写文件输出到utf8编码格式的文件
 
 3.对mysql时间类型的支持是什么
+
 datetime没有时区的概念，所以是啥就是啥。
 timestamp经过python转换成datetime,转换成运行程序的环境时区相关的时间
 
 4.底层是用的python-mysql-replication 包，是否可以用原生态的python-mysql-replication替换呢？
+
 不行，因为原生态的包开发的接口不够多，有些功能不具备。所以在它的代码基础上改了部分
 
 5.指定event位置时是否会找出语句的丢失?
+
 一定不能指定位置时指定在dml的位置，位置至少应该在dml之前的table_map的位置，当然更加好的位置应该是在事物开始的位置，也就是begin的位置。
 因为一个dml会对应2个event,一个table_map，另一个是dml的event
+
+#联系方式
+mail:laiyi@daojia.com
