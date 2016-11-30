@@ -9,8 +9,9 @@ mysqlbinlog_back.py 是在线读取row格式的mysqld的binlog,然后生成反�
 `python mysqlbinlog_back.py --host="127.0.0.1" --username="root" --port=43306 --password="" --schema=test --table="test5"` 
 
 下面是程序输出结果 
- `ls -l log/* 
-  -rw-r--r-- 1 root root 2592 Nov 9 15:44 log/save_data_dml_test_20161109_154434.sql  
+ `ls -l log/*` 
+  
+ `-rw-r--r-- 1 root root 2592 Nov 9 15:44 log/save_data_dml_test_20161109_154434.sql  
   -rw-r--r-- 1 root root 1315 Nov 9 15:44 log/flashback_test_20161109_154434.sql <--- 反向sq文件  
   -rw-r--r-- 1 root root 441 Nov 9 15:44 log/save_data_create_table_test_20161109_154434.sql`
 
