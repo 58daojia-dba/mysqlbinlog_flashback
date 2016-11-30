@@ -36,6 +36,9 @@ python2.6
 
 pymysql
 
+##内部原理
+[内部原理](internal/flashback_internal.ppt)
+
 #使用限制
 1.支持mysql版本为MySQL 5.5 and 5.6.因为底层使用的是python-mysql-replication包。
 
