@@ -34,12 +34,19 @@ pymysql
 
 #使用限制
 1.支持mysql版本为MySQL 5.5 and 5.6.因为底层使用的是python-mysql-replication包。
+
 2.数据库必须是row格式的。原因看这个链接
+
 3.反向生成的表必须有主键。
+
 4.日志必须在主库存在
+
 5.反向生成的mysql数据类型列出在下面。没有列出的类型没有经过严格的测试，也许有问题
+
 6.支持的类型
+
 允许解析的字段类型，不在里面的会报错
+
   ALLOW_TYPE={  "varchar":True,  "char":True,  "datetime":True,  "date":True,  "time":True,  "timestamp":True,  "bigint":True,  "mediumint":True, 
     "smallint":True,  "tinyint":True,  "int":True,  "smallint":True,  "decimal":True,  "float":True,  "double":True,  "longtext":True,  "tinytext":True, 
      "text":True,  "mediumtext":True  }
