@@ -13,7 +13,7 @@ class Constant(object):
     """
     版本号标识
     """
-    VERSION="0.1.2"
+    VERSION="0.1.3"
     """
         存一些全局的变量
         :return:

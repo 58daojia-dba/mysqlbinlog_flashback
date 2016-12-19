@@ -172,6 +172,9 @@ def to_string(val,prefix=""):
     :param prefix:对于字符串，加prefix前缀
     :return:
     """
+    #修复为null的bug
+    if val is None:
+        return "null"
     if isinstance(val,unicode):
         ret= u"%s%s%s" % (prefix,escape_unicode(val),prefix)
         #ret= u"'%s'" % escape_unicode(val)
