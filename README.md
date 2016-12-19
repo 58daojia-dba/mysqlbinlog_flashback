@@ -74,7 +74,7 @@ utf8测试通过。gbk方式没有测试，应该问题不大。
 
 原理角度python都用utf8的方式读出数据，内部转换成unicode的方式，然后写文件输出到utf8编码格式的文件
 
-产生的sql是utf8格式的，包括了utfmb4的编码，所以特别注意2点
+如果数据库是utf8mb4的编码格式，因为产生的sql是utf8格式的，包括了utfmb4的编码，所以没有问题，但是特别注意2点
 
 a.导入mysql时一定指定，mysql ... --default-character-set=utf8mb4 
 
