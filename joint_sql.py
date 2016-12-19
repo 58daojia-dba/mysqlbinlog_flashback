@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
- 公共函数
+ v0.1.2 2016/12/19 yilai 建表改成utf8mb4字符集
  v0.1.1  2016/09/21  yilai    加了些参数
  v0.1.0  2016/07/20  yilai    created
 """
@@ -305,7 +305,7 @@ def join_create_table(schema,table,colums):
         columns_def.append(columns_def_ele)
     columns_def_str=",".join(columns_def)
 
-    sql=u"CREATE TABLE "+table_name+" ("+columns_def_str+")"+" ENGINE=InnoDB DEFAULT CHARSET=utf8"
+    sql=u"CREATE TABLE "+table_name+" ("+columns_def_str+")"+" ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
     return sql
 
 
